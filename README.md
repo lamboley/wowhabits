@@ -1,4 +1,4 @@
-# WoW Habits
+# WoW Habits <!-- omit from toc -->
 
 [![CI](https://github.com/lamboley/wowhabits/actions/workflows/ci.yml/badge.svg)](https://github.com/lamboley/wowhabits/actions/workflows/ci.yml)
 [![Trivy Security Scan](https://github.com/lamboley/wowhabits/actions/workflows/trivy-scan.yml/badge.svg)](https://github.com/lamboley/wowhabits/actions/workflows/trivy-scan.yml)

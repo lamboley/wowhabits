@@ -1,0 +1,71 @@
+version: "2"
+
+run:
+  concurrency: 16
+  issues-exit-code: 1
+  tests: true
+
+output:
+  formats:
+    text:
+      path: stdout
+      print-linter-name: true
+      print-issued-lines: true
+      colors: true
+
+linters:
+  enable:
+    - copyloopvar
+    - depguard
+    - errcheck
+    - gochecksumtype
+    - goconst
+    - govet
+    - ineffassign
+    - revive
+    - staticcheck
+    - unconvert
+  disable:
+    - unparam
+    - unused
+  settings:
+    depguard:
+      rules:
+        main:
+          deny:
+            - pkg: io/ioutil
+              desc: "io/ioutil is deprecated, use io and os instead"
+    goconst:
+      min-occurrences: 5
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - goconst
+        path: (.+)_test\.go
+
+issues:
+  fix: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  settings:
+    gofumpt:
+      module-path: github.com/lamboley/wowhabits
+      extra:
+        group-params: true
+    goimports:
+      local-prefixes:
+        - github.com/lamboley/wowhabits
+  exclusions:
+    generated: lax

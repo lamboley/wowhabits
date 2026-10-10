@@ -1,8 +1,7 @@
-# Security policy
+# Security policy <!-- omit from toc -->
 
-- [Security policy](#security-policy)
-  - [Supported versions](#supported-versions)
-  - [Reporting a vulnerability](#reporting-a-vulnerability)
+- [Supported versions](#supported-versions)
+- [Reporting a vulnerability](#reporting-a-vulnerability)
 
 ## Supported versions
 
