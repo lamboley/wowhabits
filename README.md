@@ -5,7 +5,7 @@
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/15653/badge)](https://www.bestpractices.dev/projects/15653)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/lamboley/wowhabits/badge)](https://scorecard.dev/viewer/?uri=github.com/lamboley/wowhabits)
 [![Trivy Security Scan](https://github.com/lamboley/wowhabits/actions/workflows/trivy-scan.yml/badge.svg)](https://github.com/lamboley/wowhabits/actions/workflows/trivy-scan.yml)
-[![govulncheck](https://github.com/lamboley/wowhabits/actions/workflows/govulncheck.yml/badge.svg?event=schedule)](https://github.com/lamboley/wowhabits/actions/workflows/govulncheck.yml)
+[![govulncheck](https://github.com/lamboley/wowhabits/actions/workflows/govulncheck.yml/badge.svg)](https://github.com/lamboley/wowhabits/actions/workflows/govulncheck.yml)
 [![codecov](https://codecov.io/gh/lamboley/wowhabits/branch/master/graph/badge.svg)](https://codecov.io/gh/lamboley/wowhabits)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lamboley/wowhabits?sort=semver)
 [![wakatime](https://wakatime.com/badge/user/a7d28313-c4f9-4f0a-9d46-7f09e10ba82a/project/d4a55f72-384f-4407-8097-6a5cf40007fd.svg)](https://wakatime.com/badge/user/a7d28313-c4f9-4f0a-9d46-7f09e10ba82a/project/d4a55f72-384f-4407-8097-6a5cf40007fd)
