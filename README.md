@@ -10,21 +10,16 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lamboley/wowhabits?sort=semver)
 [![wakatime](https://wakatime.com/badge/user/a7d28313-c4f9-4f0a-9d46-7f09e10ba82a/project/d4a55f72-384f-4407-8097-6a5cf40007fd.svg)](https://wakatime.com/badge/user/a7d28313-c4f9-4f0a-9d46-7f09e10ba82a/project/d4a55f72-384f-4407-8097-6a5cf40007fd)
 
-This is the source code of the __WoW Habits__ application.
+This is the source code of __WoW Habits__. The application is still under development.
 
 - [Introduction](#introduction)
-- [Documentation](#documentation)
 - [Feedback](#feedback)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
 
-Wowhabits is a gamified habit-tracking app that uses your World of Warcraft character to represent your real-life progress. Complete habits, earn XP, and level up as you build better habits.
-
-## Documentation
-
-The full documentation is [here](docs/README.md).
+Wowhabits is a gamified habit-tracking app that uses your World of Warcraft character to represent your real-life progress.
 
 ## Feedback
 
