@@ -9,10 +9,7 @@ welcome.
   - [Prepare your environment](#prepare-your-environment)
   - [Fork and clone WoW Habits](#fork-and-clone-wow-habits)
   - [Using the Makefile](#using-the-makefile)
-  - [Install required tools](#install-required-tools)
   - [Building binaries](#building-binaries)
-- [Architecture](#architecture)
-- [Codebase structure](#codebase-structure)
   - [Go Format and lint](#go-format-and-lint)
   - [PR Approval and Merging](#pr-approval-and-merging)
 
@@ -49,30 +46,15 @@ Usage:
 ...output...
 ```
 
-### Install required tools
-
-Makefile allow you to install needed development tools (e.g. the linter):
-```shell
-$ make install-all
-```
-
 ### Building binaries
 
-To build WoW Habits binaries, you can run `make build-all`.
+To build WoW Habits binaries, you can run `make binary`.
 Built binaries will be placed in the `bin/` directory.
 You can manually test to verify that WoW Habits is working by running the binaries.
 
-## Architecture
-
-Description about architecture in the repository is found [here](./docs/ARCHITECTURE.md).
-
-## Codebase structure
-
-Description about important directories in the repository is found [here](./docs/CODE_STRUCTURE.md).
-
 ### Go Format and lint
 
-All code changes must pass `make lint-all`.
+All code changes must pass `make lint`.
 
 ### PR Approval and Merging
 

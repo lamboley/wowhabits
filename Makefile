@@ -1,45 +1,46 @@
-SHELL := $(shell command -v bash;)
-GO ?= go
-# Static binary: runs in scratch/distroless images and cross-compiles without a C toolchain.
-CGO_ENABLED ?= 0
-GOOS ?= $(shell $(GO) env GOOS)
-GOARCH ?= $(shell $(GO) env GOARCH)
-GOCMD = CGO_ENABLED=$(CGO_ENABLED) GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO)
+SHELL := /bin/bash
 
-export PATH := $(shell $(GO) env GOPATH)/bin:$(PATH)
+VERSION ?= $(shell git describe --tags --always --dirty)
 
-##@ Building
+##@ Build
 
-.PHONY: build-wowhabits
-build-wowhabits: ## Build the wowhabits binary into bin/
-	$(GOCMD) build \
-		$(BUILDFLAGS) \
-		-ldflags '$(LDFLAGS)' \
-		-tags "$(BUILDTAGS)" \
-		-o bin/wowhabits ./cmd/wowhabits
+.PHONY: binary
+binary:  ## Build WoWHabits binary.
+	@echo "INFO: Building WoWHabits binary..."
+	docker buildx build \
+		--build-arg VERSION=$(VERSION) \
+		-f Dockerfile --target=result --output=. .
 
-.PHONY: build-all
-build-all: build-wowhabits ## Build all binaries
+##@ Test
 
-##@ Linting
+.PHONY: test
+test: ## Run go unit test.
+	go run gotest.tools/gotestsum@v1.13.0 --format pkgname -- ./...
 
-.PHONY: lint-golangci-lint
-lint-golangci-lint: ## Run `golangci-lint run ./...`
+##@ Lint
+
+.PHONY: lint
+lint:  ## Run golangci-lint.
 	golangci-lint run
 
-.PHONY: lint-all
-lint-all: lint-golangci-lint ## Run all linters
+##@ Format
 
-##@ Installation
-
-.PHONY: install-golangci-lint
-install-golangci-lint:  ## Install golangci-lint into "$GOPATH/bin"
-	curl -sSfL --retry 5 https://golangci-lint.run/install.sh | sh -s -- -b $$($(GO) env GOPATH)/bin v2.14.0
-
-.PHONY: install-all
-install-all: install-golangci-lint ## Install all development tools
+.PHONY: format
+format: ## Format Go code with goimports (via golangci-lint).
+	golangci-lint fmt
 
 ##@ Helpers
+
+.PHONY: deps
+deps: ## Tidy and verify Go module dependencies.
+	go mod tidy
+	go mod verify
+
+.PHONY: clean
+clean: ## Clean up build artifacts.
+	rm -rf \
+		$(wildcard coverage.*) \
+		bin
 
 .PHONY: help
 help: ## Display this help.

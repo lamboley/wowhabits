@@ -1,4 +1,3 @@
-// Package main is the binary for the wowhabits application
 package main
 
 import (
@@ -12,8 +11,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/lamboley/wowhabits/internal/api"
+	"github.com/lamboley/wowhabits/pkg/api"
 )
+
+var version = "dev"
 
 func main() {
 	var addr string
@@ -42,7 +43,7 @@ func main() {
 	}
 	serve.Flags().StringVar(&addr, "addr", ":8080", "address to listen on")
 
-	root := &cobra.Command{Use: "wowhabits", Short: "WoW Habits server", SilenceUsage: true}
+	root := &cobra.Command{Use: "wowhabits", Short: "WoW Habits server", Version: version, SilenceUsage: true}
 	root.AddCommand(serve)
 
 	if root.Execute() != nil {

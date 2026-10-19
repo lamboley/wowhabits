@@ -1,3 +1,4 @@
-.git/
-.github/
-bin/
+./bin
+./.git/
+./.env
+./ui/node_modules/
