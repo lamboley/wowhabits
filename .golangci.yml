@@ -2,8 +2,21 @@ version: "2"
 
 formatters:
   enable:
+    - gofmt
     - goimports
   settings:
     goimports:
       local-prefixes:
         - github.com/lamboley/wowhabits
+
+linters:
+  default: none
+  enable:
+    - govet
+    - revive
+  settings:
+    revive:
+      enable-all-rules: true
+      rules:
+        - {name: line-length-limit, disabled: true}
+        - {name: add-constant, disabled: true}

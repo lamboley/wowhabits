@@ -1,4 +1,4 @@
-ARG GOLANG=golang:1.27.2-alpine3.24
+ARG GOLANG=docker.io/library/golang:1.27.2-alpine3.24
 
 FROM --platform=$BUILDPLATFORM ${GOLANG} AS build
 ARG TARGETOS

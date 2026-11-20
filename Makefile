@@ -1,15 +1,14 @@
-SHELL := /bin/bash
-
+SHELL := $(shell command -v bash)
 VERSION ?= $(shell git describe --tags --always --dirty)
 
 ##@ Build
 
 .PHONY: binary
-binary:  ## Build WoWHabits binary.
+binary: ## Build WoWHabits binary.
 	@echo "INFO: Building WoWHabits binary..."
-	docker buildx build \
+	podman build \
 		--build-arg VERSION=$(VERSION) \
-		-f Dockerfile --target=result --output=. .
+		-f deploy/Dockerfile --target=result --output=. .
 
 ##@ Test
 
@@ -20,27 +19,16 @@ test: ## Run go unit test.
 ##@ Lint
 
 .PHONY: lint
-lint:  ## Run golangci-lint.
+lint: ## Run golangci-lint.
 	golangci-lint run
 
 ##@ Format
 
 .PHONY: format
-format: ## Format Go code with goimports (via golangci-lint).
+format: ## Format Go code with goimports.
 	golangci-lint fmt
 
 ##@ Helpers
-
-.PHONY: deps
-deps: ## Tidy and verify Go module dependencies.
-	go mod tidy
-	go mod verify
-
-.PHONY: clean
-clean: ## Clean up build artifacts.
-	rm -rf \
-		$(wildcard coverage.*) \
-		bin
 
 .PHONY: help
 help: ## Display this help.
