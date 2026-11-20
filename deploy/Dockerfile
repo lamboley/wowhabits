@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/go/pkg/mod \
     --mount=type=cache,target=/root/.cache/go-build \
     CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build \
         -trimpath \
-        -ldflags="$STRIP -X github.com/lamboley/wowhabits/pkg/version.gitVersion=$VERSION" \
+        -ldflags="$STRIP -X github.com/lamboley/wowhabits/cmd/wowhabits/app.gitVersion=$VERSION" \
         -o /out/wowhabits ./cmd/wowhabits
 
 FROM scratch AS result
